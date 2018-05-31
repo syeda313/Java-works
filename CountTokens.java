@@ -6,33 +6,34 @@ import stdlib.StdOut;
 public class CountTokens {
 
 	public static void main(String[] args) {
+		//ask user for a file
 		StdOut.print("Please enter the text file pathname: ");
 		String filename = StdIn.readLine();
 		StdIn.fromFile(filename);
-		final String bookText = StdIn.readAll();
+		final String bookText = StdIn.readAll(); //read the contents token by token
 		String[] token = bookText.split("\n");
 
-		ArrayList<String> xml = new ArrayList<String>();
+		ArrayList<String> xml = new ArrayList<String>(); 
 
-		for (String x : token) {
+		for (String x : token) { 
 			String[] a = x.split(" ");
 			for (String word : a) {
-				xml.add(word);
+				xml.add(word); //add object to end of Arraylist
 			}
 		}
 		int count = 0;
 		int open = 0;
 		int close = 0;
-		for (String w : xml) {
+		for (String w : xml) { //iterate through array to count number of words, open tags, closed tags
 			if (!w.equals("")) {
 				XMLToken t = new XMLToken(w);
-
+                  
 				if (!t.isTag()) {
 					count++;
 				}
 				if (t.isOpeningTag()) {
 					open++;
-				} else if (t.isClosingTag()) { // counts bad closed tags and
+				} else if (t.isClosingTag()) { // counts bad closed tags
 					close++;
 				}
 			}
