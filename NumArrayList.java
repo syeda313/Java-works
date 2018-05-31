@@ -48,3 +48,5 @@ public class NumArrayList<T extends Number> {
 		}
 		return list;
 	}
+
+}
