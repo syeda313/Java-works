@@ -21,8 +21,8 @@ public class NumArrayList<T extends Number> {
 		L.add(elem);
 	}
 
-	// Uncomment out and write this method
-	// There isn't a reasonable stub I can put in it
+	
+	// get the index 
 	public T get(int index) {
 		return L.get(index);
 
