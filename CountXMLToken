@@ -1,0 +1,44 @@
+public class CountXMLToken {
+
+	String token;
+
+	public CountXMLToken(String token) {
+		this.token = token;
+	}
+
+	public boolean isTag() {
+		if (token.charAt(0) == '<' && token.charAt(token.length() - 2) == '>') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean isOpeningTag() {
+		if (token.charAt(0) == '<' && token.charAt(1) != '/' && token.charAt(token.length() - 2) == '>') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean isClosingTag() {
+		if (token.charAt(0) == '<' && token.charAt(1) == '/' && token.charAt(token.length() - 2) == '>') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public String getTagName() {
+		String ans = "";
+		if (isTag()) {
+			if (isOpeningTag()) {
+				ans = token.substring(1, token.length() - 2);
+			} else {
+				ans = token.substring(2, token.length() - 2);
+			}
+		}
+		return ans;
+	}
+}
