@@ -1,11 +1,8 @@
-
-
 import stdlib.StdIn;
-
 import stdlib.StdOut;
 
 public class CountLetters {
-
+	
 	public static void main(String[] args) {
 		StdOut.print("Enter the name of the file:");
 		String bookWords = StdIn.readLine();
